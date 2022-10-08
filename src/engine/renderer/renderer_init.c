@@ -10,9 +10,9 @@
 SDL_Window* renderer_init_window(u32 width, u32 height) {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		ERROR_EXIT("SDL Initialization failed: %s\n", SDL_GetError());
@@ -60,19 +60,20 @@ void renderer_init_colour_texture(u32* texture) {
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void renderer_init_quad(u32* vao, u32* vbo, u32* ebo) {
-	/*    X     Y   Z  U  V */
-	f32 vertices[] = {
-		 0.5,  0.5, 0, 0, 0,
-		 0.5, -0.5, 0, 0, 1
-		-0.5, -0.5, 0, 1, 1,
-		-0.5,  0.5, 0, 1, 0
-	};
 
-	u32 indices[] = {
-		0, 1, 3,
-		1, 2, 3
-	};
+void renderer_init_quad(u32 *vao, u32 *vbo, u32 *ebo) {
+    /*    X     Y   Z  U  V */
+    f32 vertices[] = {
+         0.5,  0.5, 0, 0, 0,
+         0.5, -0.5, 0, 0, 1,
+        -0.5, -0.5, 0, 1, 1,
+        -0.5,  0.5, 0, 1, 0
+    };
+
+    u32 indices[] = {
+        0, 1, 3,
+        1, 2, 3
+    };
 
 	glGenVertexArrays(1, vao);
 
@@ -97,3 +98,4 @@ void renderer_init_quad(u32* vao, u32* vbo, u32* ebo) {
 
 	glBindVertexArray(0);
 }
+
