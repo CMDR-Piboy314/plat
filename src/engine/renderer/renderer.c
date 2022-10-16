@@ -8,7 +8,7 @@
 static Renderer_State_Internal state = {0};
 
 void renderer_init() {
-	gs.renderer.width = 800;
+	gs.renderer.width  = 800;
 	gs.renderer.height = 600;
 	gs.renderer.window = renderer_init_window(gs.renderer.width, gs.renderer.height);
 

@@ -8,8 +8,8 @@
 typedef struct renderer_state {
 	SDL_Window* window;
 
-	f32 width;
-	f32 height;
+	i32 width;
+	i32 height;
 } Renderer_State;
 
 void renderer_init();

@@ -1,7 +1,7 @@
 #include "config.h"
 
 #include "../global.h"
-#include "../io.h"
+#include "../io/io.h"
 #include "../util.h"
 
 #include "../input/input.h"
@@ -90,9 +90,9 @@ void config_key_bind(Input_Key key, const char* key_name) {
 	SDL_Scancode scan_code = SDL_GetScancodeFromName(key_name);
 
 	if (scan_code == SDL_SCANCODE_UNKNOWN) {
-		ERROR_RETURN(1, "Invalid scan code when binding key %s\n", key_name);
+		ERROR_EXIT("Invalid scan code when binding key %s\n", key_name);
 	}
 
-	global.config.keybinds[key] = scan_code;
+	gs.config.keybinds[key] = scan_code;
 }
 
