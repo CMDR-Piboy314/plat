@@ -69,3 +69,4 @@ u32 renderer_shader_create(const char* vert_path, const char* frag_path) {
 
 	return shader;
 }
+

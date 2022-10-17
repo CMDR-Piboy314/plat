@@ -24,3 +24,4 @@ void renderer_init_colour_texture(u32* texture);
 void renderer_init_shaders(Renderer_State_Internal* state);
 
 u32 renderer_shader_create(const char* vert_path, const char* frag_path);
+
